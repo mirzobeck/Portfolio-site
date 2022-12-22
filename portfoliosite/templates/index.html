@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Mirzobek Sobirov</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <!-- Favicon
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicon.png' %}">
+
+    <!-- Stylesheets
+    ================================================== -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <header id="masthead" class="site-header" data-anchor-target=".hero" data-top="background: rgba(255,255,255,0); padding: 30px 0; box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0);" data-top-bottom="background: rgba(255,255,255,1); padding: 10px 0; box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.2);">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+
+                    <button type="button" class="navbar-toggle collapsed" data-target="#portfolio-perfect-collapse" aria-expanded="false" >
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <a href="#hero" class="site-logo"><img src="{% static 'assets/img/logo.png' %}" alt="logo"></a>
+
+                </div><!-- /.navbar-header -->
+
+                <div class="main-menu" id="portfolio-perfect-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="page-scroll"><a href="#hero">Asosiy</a></li>
+                        <li class="page-scroll"><a href="#about">Men haqimda</a></li>
+                        <li class="page-scroll"><a href="#service">Xizmatlar</a></li>
+                        <li class="page-scroll"><a href="#portfolio">Portfolio</a></li>
+                        <li class="page-scroll"><a href="#contact">Bog'lanish</a></li>
+                        
+                    </ul><!-- /.navbar-nav -->
+
+                </div><!-- /.navbar-collapse -->
+
+            </div>
+        </nav><!-- /.primary-navigation -->
+    </header><!-- /#header -->
+
+    <div id="hero" class="hero">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h1>Mirzobek Sobirov</h1>
+                    <div class="page-scroll">
+                        <p class="job-title">Back-end Developer</p>
+                        <div class="clearfix visible-xxs"></div>
+                        <a href="#portfolio" class="btn btn-border">Portfolio</a>
+                    </div>
+                </div>
+            
+                <div class="col-md-6 text-right">
+                    <img src="{% static 'assets/img/alex-vidal.png' %}" alt="alex-vidal">
+                </div>
+
+            </div>
+        </div>
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section id="about" class="site-section section-about text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h2>Men haqimda</h2>
+                        <img src="{% static 'assets/img/lines.svg' %}" class="img-lines" alt="lines">
+                        <p>Salom mening ismim Mirzobek. Men Back-end dasturchiman. Mening yoshim {{yosh.years}} da. Dasturlashni boshlaganimga {% if staj.years == 0 %}{{ staj.months }}{% else %}{{ staj.years }} yil-u {{ staj.months }}{% endif %} oy vaqt bo'ldi. Men hozir {{men.degree}} darajadagi dasturchiman. Agar sizda boshlamoqchi bo'lgan loyihangiz bo'lsa yoki biror narsada mening yordamim kerak deb hisoblasangiz, u holda men bilan bog'laning.</p>
+                        <a href="#contact" class="btn btn-fill">Bog'lanish</a>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.secton-about -->
+
+        <section class="site-section section-skills">
+            <div class="container">
+                <div class="text-center">
+                    <h3>Mening mahoratim</h3>
+                    <img src="{% static 'assets/img/lines.svg' %}" class="img-lines" alt="lines">
+                </div>
+                <div class="row">
+                    {% for skill in skill %}
+                    <div class="col-md-4" style="padding-bottom: 40px;">
+                        <div class="skill">
+                            <h4>{{ skill.name }}</h4>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="{{ skill.level }}"></div><!-- /.progress-bar -->
+                            </div><!-- /.progress -->
+                        </div><!-- /.skill -->
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section><!-- /.secton-skills -->
+
+        <section id="service" class="site-section section-services overlay text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Nima qilaman</h3>
+                        <img src="{% static 'assets/img/lines.svg' %}" class="img-lines" alt="lines">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="service">
+                            <img src="{% static 'assets/img/front-end.svg' %}" alt="Front End Developer">
+                            <h4>Back-end</h4>
+                            <p>Back-end bu saytning ishlash mexanizmidir. Bunda men Django frameworkini ishlataman. Sizga yuqori darajadagi sayt yasash xizmatini taklif qilaman.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="service">
+                            <img src="{%  static 'assets/img/back-end.svg' %}" alt="Back End Developer">
+                            <h4>Telegram bot</h4>
+                            <p>Men har qanday mukammal darajadag bot'larni yasay olaman. Telagram bot yasashda men Aiogram frameworkidan foydalanaman.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="service">
+                            <img src="{%  static 'assets/img/consultancy.svg' %}" alt="Coding">
+                            <h4>Web va mobil ilovalar uchun API</h4>
+                            <p>APIni Django Rest frameworkida yasayman. APIni mobil ilovalarda ham, web-saytlarda ham ishlatish mumkin. API kerakmi?<br>nda menga murojaat qiling!</p>
+                        </div><!-- /.service -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.secton-services -->
+
+        <section id="portfolio" class="site-section section-portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h3>Mening qilgan ishlarim</h3>
+                    <img src="{%  static 'assets/img/lines.svg' %}" class="img-lines" alt="lines">
+                </div>
+                <div class="row">
+                    {% for work in works %}
+                    <div class="col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            {% if work.photo %}
+                            <img src="{{ work.photo.url }}" class="img-res" alt="">
+                            {% else %}
+                            <img src="{% static 'assets/img/portfolio-1.jpg' %}" class="img-res" alt="">
+                            {% endif %}
+                            <div class="portfolio-item-info">
+                                <h4>{{ work.title }}</h4>
+                                <a href="#" data-toggle="modal" data-target="#portfolioItem{{ work.id }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                <a href="{{ work.workurl }}"><span class="glyphicon glyphicon-link"></span></a>
+                            </div><!-- /.portfolio-item-info -->
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </section><!-- /.secton-portfolio -->
+
+        <section class="site-section section-counters text-center">
+            <div class="container">
+                <div class="row">
+                    {% if staj.year == 0 %}
+                    <div class="col-sm-4 col-xs-12">
+                        <p class="counter start" data-to="{{ staj.years }}" data-speed="2000">0</p>
+                        <h4>Yillik tajriba</h4>
+                    </div>
+                    {% else %}
+                    <div class="col-sm-4 col-xs-12">
+                        <p class="counter start" data-to="{{ staj.months }}" data-speed="2000">0</p>
+                        <h4>Oylik tajriba</h4>
+                    </div>
+                    {% endif %}
+                    <div class="col-sm-4 col-xs-12">
+                        <p class="counter start" data-to="{{ men.work }}" data-speed="2000">0</p>       
+                        <h4>Tugallangan loyihalar</h4>      
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <p id="infinity" class="counter" data-from="0" data-to="1" data-speed="1000">0</p>
+                        <h4>Ushbu saytda soniyalar muhim!<br>Nimani kutyapsiz?</h4>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-counters -->
+
+        <section id="contact" class="site-section section-form text-center">
+            <div class="container">
+
+                <h3>Men bilan bog'lanish</h3>
+                <img src="{%  static 'assets/img/lines.svg' %}" class="img-lines" alt="lines">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="text" name="name" class="form-control mt-x-0" placeholder="Ismingiz" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="email" name="email" class="form-control" placeholder="Emailingiz" required>   
+                        </div>
+                        <div class="col-sm-12">
+                            <textarea name="message" id="mesaage" class="form-control" placeholder="Xabaringiz" required></textarea>
+                        </div>
+                    </div>
+                    <button href="#" class="btn btn-border" type="submit">Yuborish <span class="glyphicon glyphicon-send"></span></button>
+                </form>
+            </div>
+        </section><!-- /.section-form -->
+
+    </main><!-- /#main -->
+
+    <footer id="colophon" class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <a class="icon facebook-bg" href="#"><i class="icon-facebook"></i></a>
+                    <a class="icon twitter-bg" href="#"><i class="icon-twitter"></i></a>
+                    <a class="icon gplus-bg" href="#"><i class="icon-linkedin"></i></a>
+                    <a class="icon linkedin-bg" href="#"><i class="icon-gplus"></i></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3"><p class="copyright">2017. All Rights Reserved</p></div>
+                <div class="col-sm-4 col-xs-3">
+                    <div class="text-right page-scroll">
+                        <a class="icon icon-up-bg" href="#hero"><i class="icon-up"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- /#footer -->
+
+    <!-- Modals -->
+    {% for work in works %}
+    <div id="portfolioItem{{ work.id }}" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+            {% if work.photo %}
+            <img class="img-res" src="{{ work.photo.url }}" alt="">
+            {% else %}
+            <img class="img-res" src="{%  static 'assets/img/portfolio-1.jpg' %}" alt="">
+            {% endif %}
+        </div>
+          <div class="modal-body">
+            <h4 class="modal-title">{{ work.title }}</h4>
+            <p>{{ work.fullabout }}</p>
+          </div>
+          <div class="modal-footer">
+            <a href="{{ work.workurl }}" class="btn btn-fill">Ishlatib ko'rish</a>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    {% endfor %}
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{%  static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="{%  static 'assets/js/skrollr.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-progressbar/0.9.0/bootstrap-progressbar.min.js"></script>
+    <script src="{%  static 'assets/js/jquery.countTo.min.js' %}"></script>
+    <script src="{%  static 'assets/js/script.js' %}"></script>
+  
+</body>
+</html>
